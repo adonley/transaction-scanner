@@ -20,8 +20,8 @@ def make_rpc(method, params):
     }
     response = requests.post("http://127.0.0.1:8545", json=data)
     if response.status_code != 200:
-        logging.warning(response.content)
-    return json.loads(response.content).get('result')
+        logging.warning(str(response.content, "utf-8"))
+    return json.loads(str(response.content, "utf-8")).get('result')
 
 
 def get_block_by_number(hex_number):
